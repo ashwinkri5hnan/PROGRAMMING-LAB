@@ -1,0 +1,5 @@
+str1=input("Enter the first string")
+str2=input("Enter the second string")
+a=str1.replace(str1[0],str2[0])
+b=str2.replace(str2[0],str1[0])
+print(a," ",b)
