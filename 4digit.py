@@ -1,42 +1,24 @@
 import math
 
-def isPerfectSquare(x):
-	if(x >= 0):
-		root = int(math.sqrt(x))
-		return ((root*root) == x)
-	return False
-
-excludeList = [1,3,5,7,9]
-evenList = [2,4,6,8,0]
-def allEven(num):
-    while(num>0):
-        if(num%10 in excludeList):
-            return False
+def even(num):
+    while num>0:
+        s=num%10
+        if s%2==0:
+            k=True
         else:
-            num = num//10
-    return True
-
-
-def numberCombinations(x,y):
-    for i in range(x,y+1):
-        if (i//1000) not in excludeList:
-            root = int(math.sqrt(i))
-            if(isPerfectSquare(i)):
-                if allEven(i):
-                    print("{}, and {}".format(i,int(math.sqrt(i))))
-
-
-
-
-
-def takeInput():
-    s_range = int(input("Enter the starting range: "))
-    f_range = int(input("Enter the stopping range: "))
-    if s_range>= 1000 and f_range>=1000:
-        numberCombinations(s_range,f_range)
-    else:
-        takeInput()
-
-takeInput()
+            k=False
+            break
+        num=num//10
+    return k
+n=str(input("Enter the range using comma")).split(',')
+li=[]
+if len(n[0])!=4 and len(n[1])!=4:
+    print("Please enter a 4 digit value")
+else:
+    for i in range(int(n[0]),int(n[1])+1):
+        srt=math.sqrt(i)
+        if i%srt==0 and even(i):
+            li.append(i)
+    print(li)
 
 
