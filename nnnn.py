@@ -1,3 +1,3 @@
 n=int(input("Enter a number"))
-f=n+n*n+n*n*n
+f=n+n*10+n+n*100+((n*10)+n)
 print(f)
